@@ -1,6 +1,19 @@
-// Import stylesheets
-import './style.css';
+"use strict";
 
-// Write Javascript code!
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+var myVar = 5;
+
+var example = function() {
+  var myVar = 10;
+
+  console.info("Local:", myVar);
+  console.info("Outer:", this.myVar);
+};
+
+example.call({ myVar });
+
+function sum(a, b) {
+  return arguments.length === 2 //were two arguments passed?
+    ? a + b //yes: return their sum
+    : b => a + b; //no:  return a function
+}
+console.log(sum(2)(3));
